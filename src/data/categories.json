@@ -1,0 +1,23 @@
+{
+    "categories": {
+        "animals": [
+            "cat",
+            "dog",
+            "giraff"
+        ]
+    },
+    {
+        "fruits": [
+            "banna",
+            "apple",
+            "peach"
+        ]
+    },
+    {
+        "transport": [
+            "plane",
+            "car",
+            "bus"
+        ]
+    }
+}

@@ -1,0 +1,19 @@
+{
+    "users": [
+        {
+            "name": "alex",
+            "eamil": "al@gamil.com",
+            "password": "aaa"
+        },
+        {
+            "name": "ron",
+            "email": "ron@gamil.com",
+            "password": "rrr"
+        },
+        {
+            "name": "esti",
+            "email": "est@gamil.com",
+            "password": "eee"
+        }
+    ]
+}
