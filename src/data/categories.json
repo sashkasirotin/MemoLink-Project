@@ -3,21 +3,68 @@
         "animals": [
             "cat",
             "dog",
-            "giraff"
-        ]
-    },
-    {
+            "giraffe",
+            "elephant",
+            "lion",
+            "tiger",
+            "zebra",
+            "monkey",
+            "bear",
+            "wolf",
+            "fox",
+            "rabbit",
+            "deer",
+            "horse",
+            "cow",
+            "sheep",
+            "goat",
+            "kangaroo",
+            "panda",
+            "camel"
+        ],
         "fruits": [
-            "banna",
+            "banana",
             "apple",
-            "peach"
-        ]
-    },
-    {
+            "peach",
+            "orange",
+            "mango",
+            "grape",
+            "pineapple",
+            "strawberry",
+            "watermelon",
+            "kiwi",
+            "papaya",
+            "pear",
+            "plum",
+            "cherry",
+            "blueberry",
+            "raspberry",
+            "lemon",
+            "lime",
+            "coconut",
+            "pomegranate"
+        ],
         "transport": [
-            "plane",
             "car",
-            "bus"
+            "bus",
+            "plane",
+            "train",
+            "bicycle",
+            "motorcycle",
+            "truck",
+            "ship",
+            "boat",
+            "helicopter",
+            "subway",
+            "tram",
+            "scooter",
+            "van",
+            "taxi",
+            "rickshaw",
+            "ferry",
+            "yacht",
+            "spaceship",
+            "hovercraft"
         ]
     }
 }
