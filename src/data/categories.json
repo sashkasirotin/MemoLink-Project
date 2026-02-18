@@ -1,5 +1,5 @@
-{
-    "categories": {
+[
+    {
         "animals": [
             "cat",
             "dog",
@@ -21,7 +21,9 @@
             "kangaroo",
             "panda",
             "camel"
-        ],
+        ]
+    },
+    {
         "fruits": [
             "banana",
             "apple",
@@ -43,7 +45,9 @@
             "lime",
             "coconut",
             "pomegranate"
-        ],
+        ]
+    },
+    {
         "transport": [
             "car",
             "bus",
@@ -67,4 +71,4 @@
             "hovercraft"
         ]
     }
-}
+]
