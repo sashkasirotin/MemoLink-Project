@@ -3,12 +3,15 @@ import { useState, useEffect } from "react";
 import Card from "../components/Card";
 import dataJson from '../data/categories.json'
 import fetchImages from '../components/api'
+import "./BoardGamePage.css";
+
 
 function BoardGame({ category }) {
 
     const [cards, setCards] = useState([]);
     const [promptWord, setPromptWord] = useState("");
     const [isGameReady, setIsGameReady] = useState(false);
+    // const [seconds, setSeconds] = useState(0);
 
 
     function shuffleAndPick(wordsArray) {
@@ -60,6 +63,9 @@ function BoardGame({ category }) {
 
     }, [category]);
 
+
+
+
     const pickNextWord = (currentCards) => {
         const remainingCards = currentCards.filter(c => !c.show);
         if (remainingCards.length > 0) {
@@ -91,6 +97,7 @@ function BoardGame({ category }) {
             <div className="game-header">
                 <h2>find: <span className="highlight">{promptWord}</span></h2>
             </div>
+            <div className="timer">Time: {seconds}s</div>
 
             <div className="board-container" >
                 {cards.map(card => (
