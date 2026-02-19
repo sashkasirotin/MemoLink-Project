@@ -2,18 +2,18 @@
     "users": [
         {
             "name": "alex",
-            "eamil": "al@gamil.com",
-            "password": "aaa"
+            "email": "al@gamil.com",
+            "password": "234567"
         },
         {
             "name": "ron",
             "email": "ron@gamil.com",
-            "password": "rrr"
+            "password": "123456"
         },
         {
             "name": "esti",
             "email": "est@gamil.com",
-            "password": "eee"
+            "password": "345678"
         }
     ]
 }
