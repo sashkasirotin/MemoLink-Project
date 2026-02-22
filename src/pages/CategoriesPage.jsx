@@ -5,7 +5,6 @@ import ChooseDifficulty from '../components/ChooseDifficulty'
 import { useState } from 'react';
 import { Button } from '@mantine/core';
 
-
 export default function CategoriesPage() {
     const navigate = useNavigate();
     const [selectedCategory, setSelectedCategory] = useState(null);
@@ -24,7 +23,6 @@ export default function CategoriesPage() {
     const handleDifficultySelect = (difficulty) => {
         console.log(difficulty)
         setSelectedDifficulty(difficulty);
-        // navigate(`/play/${selectedCategory}/${selectedDifficulty}`);
     }
 
 
@@ -59,7 +57,9 @@ export default function CategoriesPage() {
                 difficulty={selectedDifficulty}
                 onSelect={handleDifficultySelect}
             />
-            <Button onClick={handlePlay}> Play</Button>
+            <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '20px', maxWidth: 200, margin: '0 auto' }}>
+                <Button onClick={handlePlay}>Play</Button>
+            </div>
         </div>
     );
 }
