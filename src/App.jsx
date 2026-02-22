@@ -13,10 +13,10 @@ function App() {
 
   return (
     <>
-      {/* <BoardGame category={"fruits"} /> */}
-      <AuthProvider >
+      <BoardGame category={"fruits"} />
+      {/* <AuthProvider >
         <HomePage />
-      </AuthProvider>
+      </AuthProvider> */}
     </>
   )
 }

@@ -94,10 +94,11 @@ function BoardGame({ category }) {
 
     return (
         <div className="board-game-page">
+            <div className="bg-noise" />
             <div className="game-header">
                 <h2>find: <span className="highlight">{promptWord}</span></h2>
             </div>
-            <div className="timer">Time: {seconds}s</div>
+            {/* <div className="timer">Time: {seconds}s</div> */}
 
             <div className="board-container" >
                 {cards.map(card => (
