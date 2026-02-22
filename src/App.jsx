@@ -25,7 +25,7 @@ function App() {
         < Routes >
           <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<LoginPage />} />
-          <Route path="/play/:category" element={<BoardGame />} />
+          <Route path="/play/:category/:difficulty" element={<BoardGame />} />
           <Route path="/categories"
             element={
               <CategoriesPage />

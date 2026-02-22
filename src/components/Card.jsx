@@ -2,7 +2,6 @@ import React from "react";
 
 function Card({ card, handleCardClick }) {
 
-    console.log(card);
     return (
         <div className="card-container" onClick={handleCardClick}>
             {card.show ? <img src={card.image} alt={card.label} /> :

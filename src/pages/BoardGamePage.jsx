@@ -9,6 +9,7 @@ import { useParams } from "react-router";
 
 function BoardGame() {
     const { category } = useParams();
+    const { difficulty } = useParams();
     const [cards, setCards] = useState([]);
     const [promptWord, setPromptWord] = useState("");
     const [isGameReady, setIsGameReady] = useState(false);
@@ -31,7 +32,14 @@ function BoardGame() {
             const j = Math.floor(Math.random() * (i + 1));
             [copy[i], copy[j]] = [copy[j], copy[i]];
         }
-        return copy.slice(0, 9);
+        const difficultyMap = {
+            easy: 9,
+            medium: 12,
+            hard: 15
+        };
+        const count = difficultyMap[difficulty] || 9;
+        return copy.slice(0, count);
+        // return copy.slice(0, 9);
     }
 
     useEffect(() => {
@@ -101,11 +109,22 @@ function BoardGame() {
             const updatedCards = cards.map(card =>
                 card.label === clickedLabel ? { ...card, show: true } : card
             );
-            console.log(updatedCards)
             setCards(updatedCards);
             pickNextWord(updatedCards);
         } else {
             console.log("Wrong card");
+            const showCard = cards.map(card =>
+                card.label === clickedLabel ? { ...card, show: true } : card
+            );
+            setCards(showCard);
+            setTimeout(() => {
+                setCards(prevCards =>
+                    prevCards.map(card =>
+                        card.label === clickedLabel ? { ...card, show: false } : card
+                    )
+                );
+            }, 1000);
+
         }
     };
 

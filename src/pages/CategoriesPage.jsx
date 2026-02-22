@@ -1,18 +1,39 @@
 import { Route, Routes, useNavigate } from 'react-router'
 import dataJson from "../data/categories.json";
 import CategoryGrid from "../components/CategoryGrid";
+import ChooseDifficulty from '../components/ChooseDifficulty'
+import { useState } from 'react';
+import { Button } from '@mantine/core';
 
 
 export default function CategoriesPage() {
     const navigate = useNavigate();
+    const [selectedCategory, setSelectedCategory] = useState(null);
+    const [selectedDifficulty, setSelectedDifficulty] = useState(null);
+
 
     const categoryNames = dataJson.map(
         item => Object.keys(item)[0]
     );
 
-    const handleSelect = (category) => {
-        navigate(`/play/${category}`);
+    const handleCategorySelect = (category) => {
+        console.log(category)
+        setSelectedCategory(category);
+    }
+
+    const handleDifficultySelect = (difficulty) => {
+        console.log(difficulty)
+        setSelectedDifficulty(difficulty);
+        // navigate(`/play/${selectedCategory}/${selectedDifficulty}`);
+    }
+
+
+    const handlePlay = (category, difficulty) => {
+        console.log(category, difficulty);
+        navigate(`/play/${selectedCategory}/${selectedDifficulty}`);
     };
+
+
 
     return (
         <div
@@ -32,8 +53,13 @@ export default function CategoriesPage() {
             </div>
             <CategoryGrid
                 categories={categoryNames}
-                onSelect={handleSelect}
+                onSelect={handleCategorySelect}
             />
+            <ChooseDifficulty
+                difficulty={selectedDifficulty}
+                onSelect={handleDifficultySelect}
+            />
+            <Button onClick={handlePlay}> Play</Button>
         </div>
     );
 }
