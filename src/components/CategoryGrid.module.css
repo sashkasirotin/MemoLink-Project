@@ -1,0 +1,14 @@
+.grid {
+    width: min(900px, 92vw);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(180px, 1fr));
+    gap: 18px;
+    padding: 12px;
+}
+
+@media (max-width: 600px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}

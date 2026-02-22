@@ -18,21 +18,23 @@ function App() {
 
   return (
     <>
+      {/* <BoardGame category={"fruits"} /> */}
       <AuthProvider >
+        {/* <HomePage /> */}
 
 
-        <Routes>
+        < Routes >
           <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<LoginPage />} />
-          <Route path="/play/:category" element={<BoardGame />} />
+          <Route path="/play/:category/:difficulty" element={<BoardGame />} />
           <Route path="/categories"
             element={
               <CategoriesPage />
-              ///<ProtectedRoute >
+              //<ProtectedRoute >
               // <ActorsPage />
               //</ProtectedRoute>
             } />
-        </Routes>
+        </Routes >
       </AuthProvider>
     </>
 

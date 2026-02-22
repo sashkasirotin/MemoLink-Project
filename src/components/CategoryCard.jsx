@@ -1,10 +1,14 @@
+import classes from "./CategoryCard.module.css";
+
 
 export default function CategoryCard({ name, image, onClick }) {
     return (
-        <div className="card" onClick={() => onClick(name)}>
-            <img src={image} alt={name} />
-            <h3>{name}</h3>
-        </div>
+        <button type="button" className={classes.card} onClick={() => onClick(name)}>
+            <div className={classes.thumb}>
+                <img src={image} alt={name} />
+            </div>
+            <span className={classes.label}>{name}</span>
+        </button>
     );
 }
 

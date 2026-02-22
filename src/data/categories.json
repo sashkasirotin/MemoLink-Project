@@ -48,7 +48,6 @@
         "transport": [
             "car",
             "bus",
-            "plane",
             "train",
             "bicycle",
             "motorcycle",
@@ -56,32 +55,27 @@
             "ship",
             "boat",
             "helicopter",
-            "subway",
             "tram",
-            "scooter",
             "van",
             "taxi",
             "rickshaw",
             "ferry",
             "yacht",
-            "spaceship",
             "hovercraft"
         ]
     },
     {
-        "ball_games": [
+        "ball games": [
             "soccer",
             "basketball",
             "volleyball",
             "tennis",
             "cricket",
             "baseball",
-            "rugby",
             "handball",
             "table tennis",
             "golf",
             "badminton",
-            "hockey",
             "softball",
             "polo",
             "water polo",
