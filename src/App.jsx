@@ -9,7 +9,6 @@ import CategoriesPage from './pages/CategoriesPage'
 import { Route, Routes, useNavigate } from 'react-router'
 import { redirect } from 'react-router'
 
-
 // import { MantineProvider } from '@mantine/core';
 import AuthProvider from './auth/AuthProvider'
 
@@ -17,31 +16,22 @@ function App() {
 
   return (
     <>
-      <BoardGame category={"fruits"} />
-      {/* <AuthProvider >
-        <HomePage />
- 
-      </AuthProvider> */}
-    </AuthProvider >
-    {/*<LoginPage />
-      Updated upstream
-      <BoardGame category={"fruits"} />*/}
+      <AuthProvider >
 
 
-      < Routes >
-        <Route path="/HomePage" element={<HomePage />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/play/:category" element={<BoardGame />} />
-        <Route path="/categories"
-          element={
-            <CategoriesPage />
-            //<ProtectedRoute >
-            // <ActorsPage />
-            //</ProtectedRoute>
-          } />
-      </Routes >
-
->>>>>>> origin/main
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/play/:category" element={<BoardGame />} />
+          <Route path="/categories"
+            element={
+              <CategoriesPage />
+              ///<ProtectedRoute >
+              // <ActorsPage />
+              //</ProtectedRoute>
+            } />
+        </Routes>
+      </AuthProvider>
     </>
 
   )
