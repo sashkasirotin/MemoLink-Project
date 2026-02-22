@@ -17,16 +17,18 @@ function App() {
 
   return (
     <>
-      {/* <BoardGame category={"fruits"} /> */}
-      <AuthProvider >
+      <BoardGame category={"fruits"} />
+      {/* <AuthProvider >
         <HomePage />
-      </AuthProvider>
-      {/*<LoginPage />
+ 
+      </AuthProvider> */}
+    </AuthProvider >
+    {/*<LoginPage />
       Updated upstream
       <BoardGame category={"fruits"} />*/}
 
 
-      <Routes>
+      < Routes >
         <Route path="/HomePage" element={<HomePage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/play/:category" element={<BoardGame />} />
@@ -37,8 +39,9 @@ function App() {
             // <ActorsPage />
             //</ProtectedRoute>
           } />
-      </Routes>
+      </Routes >
 
+>>>>>>> origin/main
     </>
 
   )

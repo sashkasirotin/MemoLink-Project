@@ -1,0 +1,194 @@
+.board-game-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    padding: 24px 16px;
+    background: #f5f7ff;
+}
+
+.board-container {
+    order: 1;
+}
+
+.game-header {
+    order: 2;
+}
+
+.board-container {
+    --card-size: clamp(95px, 18vw, 150px);
+    display: grid;
+    grid-template-columns: repeat(3, var(--card-size));
+    gap: 16px;
+    padding: 16px;
+}
+
+.card-container {
+    width: var(--card-size);
+    height: var(--card-size);
+    background: #ffffff;
+    border-radius: 12px;
+    border: 1px solid #eef1f6;
+    box-shadow:
+        0 10px 18px rgba(20, 30, 60, 0.12),
+        0 2px 6px rgba(20, 30, 60, 0.06);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+    user-select: none;
+    transition: transform 120ms ease, box-shadow 120ms ease;
+}
+
+.card-container:hover {
+    transform: translateY(-2px);
+    box-shadow:
+        0 14px 22px rgba(20, 30, 60, 0.14),
+        0 4px 10px rgba(20, 30, 60, 0.08);
+}
+
+.card-container:active {
+    transform: translateY(0) scale(0.98);
+}
+
+.card-container img {
+    width: 82%;
+    height: 82%;
+    object-fit: contain;
+    display: block;
+}
+
+.game-header h2 {
+    margin: 0;
+    padding: 10px 22px;
+    background: #3e4a57;
+    color: #ffffff;
+    border-radius: 999px;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    box-shadow:
+        0 12px 18px rgba(20, 30, 60, 0.18),
+        0 2px 6px rgba(20, 30, 60, 0.10);
+}
+
+.game-header .highlight {
+    font-weight: 800;
+    letter-spacing: 0.6px;
+}
+
+@media (max-width: 360px) {
+    .board-container {
+        gap: 10px;
+    }
+
+    .game-header h2 {
+        font-size: 16px;
+        padding: 9px 18px;
+    }
+}
+
+/* Creative premium background (no images) */
+.board-game-page {
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    padding: 28px 16px;
+
+    /* soft base gradient */
+    background: radial-gradient(1200px 700px at 20% 15%, rgba(120, 160, 255, 0.35), transparent 60%),
+        radial-gradient(900px 600px at 80% 30%, rgba(255, 140, 180, 0.28), transparent 55%),
+        radial-gradient(1000px 700px at 55% 90%, rgba(120, 255, 220, 0.22), transparent 60%),
+        linear-gradient(180deg, #f6f8ff 0%, #eef2ff 60%, #f7fbff 100%);
+}
+
+/* floating “glass blobs” */
+.board-game-page::before,
+.board-game-page::after {
+    content: "";
+    position: absolute;
+    width: 520px;
+    height: 520px;
+    border-radius: 50%;
+    filter: blur(24px);
+    opacity: 0.85;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.board-game-page::before {
+    top: -160px;
+    left: -180px;
+    background: radial-gradient(circle at 30% 30%, rgba(90, 140, 255, 0.9), rgba(90, 140, 255, 0) 60%);
+    animation: floatA 10s ease-in-out infinite;
+}
+
+.board-game-page::after {
+    bottom: -220px;
+    right: -200px;
+    background: radial-gradient(circle at 35% 35%, rgba(255, 120, 170, 0.85), rgba(255, 120, 170, 0) 60%);
+    animation: floatB 12s ease-in-out infinite;
+}
+
+/* subtle noise / texture */
+.board-game-page .board-container,
+.board-game-page .game-header {
+    position: relative;
+    z-index: 1;
+}
+
+/* Optional: add a tiny dotted texture layer */
+.board-game-page .bg-noise {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.10;
+    background-image:
+        radial-gradient(rgba(20, 30, 60, 0.35) 1px, transparent 1px);
+    background-size: 14px 14px;
+}
+
+/* animations */
+@keyframes floatA {
+
+    0%,
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    50% {
+        transform: translate(30px, 35px) scale(1.05);
+    }
+}
+
+@keyframes floatB {
+
+    0%,
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    50% {
+        transform: translate(-25px, -30px) scale(1.06);
+    }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+
+    .board-game-page::before,
+    .board-game-page::after {
+        animation: none;
+    }
+}
