@@ -67,5 +67,29 @@
             "spaceship",
             "hovercraft"
         ]
+    },
+    {
+        "ball_games": [
+            "soccer",
+            "basketball",
+            "volleyball",
+            "tennis",
+            "cricket",
+            "baseball",
+            "rugby",
+            "handball",
+            "table tennis",
+            "golf",
+            "badminton",
+            "hockey",
+            "softball",
+            "polo",
+            "water polo",
+            "futsal",
+            "pickleball",
+            "lacrosse",
+            "netball",
+            "beach volleyball"
+        ]
     }
 ]

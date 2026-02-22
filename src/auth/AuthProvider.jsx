@@ -18,7 +18,7 @@ export default function AuthProvider({ children }) {
         }
 
         setActiveUser(user);
-        navigate("/CategoriesPage");
+        navigate("/categories");
         return null;
     }
 

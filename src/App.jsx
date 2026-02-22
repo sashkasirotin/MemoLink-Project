@@ -4,8 +4,12 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import LoginPage from './components/Login'
 import BoardGame from './pages/BoardGamePage'
-//import LoginPage from './components/Login'
 import HomePage from './pages/HomePage'
+import CategoriesPage from './pages/CategoriesPage'
+import { Route, Routes, useNavigate } from 'react-router'
+import { redirect } from 'react-router'
+
+
 // import { MantineProvider } from '@mantine/core';
 import AuthProvider from './auth/AuthProvider'
 
@@ -16,8 +20,30 @@ function App() {
       <BoardGame category={"fruits"} />
       {/* <AuthProvider >
         <HomePage />
+ 
       </AuthProvider> */}
+    </AuthProvider >
+    {/*<LoginPage />
+      Updated upstream
+      <BoardGame category={"fruits"} />*/}
+
+
+      < Routes >
+        <Route path="/HomePage" element={<HomePage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/play/:category" element={<BoardGame />} />
+        <Route path="/categories"
+          element={
+            <CategoriesPage />
+            //<ProtectedRoute >
+            // <ActorsPage />
+            //</ProtectedRoute>
+          } />
+      </Routes >
+
+>>>>>>> origin/main
     </>
+
   )
 }
 
