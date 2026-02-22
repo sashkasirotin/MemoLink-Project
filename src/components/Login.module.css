@@ -1,3 +1,22 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+body {
+    background: radial-gradient(1200px 700px at 20% 15%, rgba(120, 160, 255, 0.35), transparent 60%),
+        radial-gradient(900px 600px at 80% 30%, rgba(255, 140, 180, 0.28), transparent 55%),
+        radial-gradient(1000px 700px at 55% 90%, rgba(120, 255, 220, 0.22), transparent 60%),
+        linear-gradient(180deg, #f6f8ff 0%, #eef2ff 60%, #f7fbff 100%);
+}
+
+.wrapper {
+    display: flex;
+    align-items: center;
+}
+
 .title {
     font-family: Outfit, var(--mantine-font-family);
     font-weight: 500;
@@ -8,4 +27,9 @@
     font-size: var(--mantine-font-size-sm);
     text-align: center;
     margin-top: 5px;
+}
+
+.image {
+    max-width: 2000px;
+    width: 100%;
 }

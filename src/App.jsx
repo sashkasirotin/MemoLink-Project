@@ -11,6 +11,8 @@ import { redirect } from 'react-router'
 
 // import { MantineProvider } from '@mantine/core';
 import AuthProvider from './auth/AuthProvider'
+import '@mantine/core/styles.css';
+import CategoriesPage from './pages/CategoriesPage'
 
 function App() {
 
