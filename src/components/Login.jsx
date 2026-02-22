@@ -1,26 +1,19 @@
 import {
-    Alert,
-    Anchor,
     Button,
-    Checkbox,
+    Image,
     Container,
-    Group,
     Paper,
     PasswordInput,
-    Text,
+    Grid,
     TextInput,
-    Title,
+    Alert,
 } from "@mantine/core";
 import classes from "./Login.module.css";
 import { useState } from "react";
-// import { Link } from "react-router";
 import { useAuth } from "../auth/AuthProvider";
 import { useForm } from "@mantine/form";
 import { IconAlertCircle } from "@tabler/icons-react";
-import jsonUsers from '../data/users.json'
-
-
-
+import imageMemolinkLogin from "../image/imageMemolinkLogin.png";
 
 export default function LoginPage() {
     const form = useForm({
@@ -35,17 +28,19 @@ export default function LoginPage() {
         },
     });
 
-
     const { onLogin } = useAuth();
-    const [loading, setLoading] = useState(false)
-    const [loginError, setLoginError] = useState(null)
+    const [loading, setLoading] = useState(false);
+    const [loginError, setLoginError] = useState(null);
 
     async function handleLogin() {
         const validation = form.validate();
         if (validation.hasErrors) return;
 
         setLoading(true);
-        const error = onLogin(form.values.email, form.values.password);
+        setLoginError(null);
+
+        const error = await onLogin(form.values.email, form.values.password);
+
         if (error) {
             setLoginError(error);
             setLoading(false);
@@ -53,54 +48,80 @@ export default function LoginPage() {
     }
 
     return (
-        <Container size={420} my={40}>
-            <Title ta="center" className={classes.title}>
-                Welcome back!
-            </Title>
+        <div className={classes.wrapper}>
+            <Container size="lg">
+                <Grid align="center" gutter={50} h={900}>
+                    <Grid.Col span={4}>
+                        <Paper withBorder shadow="md" p={30} radius="lg">
 
-            <Text className={classes.subtitle}>
-                Do not have an account yet? <Anchor>Create account</Anchor>
-            </Text>
+                            {loginError && (
+                                <Alert
+                                    icon={<IconAlertCircle size="1rem" />}
+                                    color="red"
+                                    variant="light"
+                                    mb="md"
+                                >
+                                    {loginError.message}
+                                </Alert>
+                            )}
 
-            <Paper withBorder shadow="sm" p={22} mt={30} radius="md">
+                            <TextInput
+                                label="Email"
+                                required
+                                value={form.values.email}
+                                onChange={(e) =>
+                                    form.setFieldValue("email", e.target.value)
+                                }
+                                error={form.errors.email}
+                                styles={{
+                                    label: { textAlign: "left" }
+                                }}
+                            />
 
-                {loginError &&
-                    <Alert
-                        icon={<IconAlertCircle size="1rem" />}
-                        title="Login Failed"
-                        color="red"
-                        variant="light"
-                    >
-                        {loginError.message
+                            <PasswordInput
+                                label="Password"
+                                required
+                                mt="md"
+                                value={form.values.password}
+                                onChange={(e) =>
+                                    form.setFieldValue("password", e.target.value)
+                                }
+                                error={form.errors.password}
+                            />
 
-                        }
-                    </Alert>}
+                            <Button
+                                fullWidth
+                                mt="xl"
+                                size="md"
+                                radius="xl"
+                                loading={loading}
+                                style={{
+                                    background:
+                                        "linear-gradient(135deg, #1971c2, #4dabf7)",
+                                }}
+                                onClick={handleLogin}
+                            >
+                                Sign in →
+                            </Button>
 
-                <TextInput
-                    label="Email"
-                    required
-                    radius="md"
-                    value={form.values.email}
-                    onChange={(e) => form.setFieldValue("email", e.target.value)}
-                    error={form.errors.email}
-                />
-                <PasswordInput
-                    label="Password"
-                    placeholder="Your password"
-                    required
-                    mt="md"
-                    radius="md"
-                    value={form.values.password}
-                    onChange={(e) => form.setFieldValue("password", e.target.value)}
-                    error={form.errors.password}
-                />
-                <Button fullWidth mt="xl"
-                    radius="md"
-                    loading={loading}
-                    onClick={handleLogin}>
-                    Sign in
-                </Button>
-            </Paper>
-        </Container>
+                        </Paper>
+                    </Grid.Col>
+
+                    <Grid.Col span={8}>
+                        <Image
+                            radius="lg"
+                            src={imageMemolinkLogin}
+                            className={classes.image}
+                            alt="Memolink"
+                            h="50vh"
+                            style={{
+                                boxShadow:
+                                    "0 20px 60px rgba(0,0,0,0.15)",
+                            }}
+                        />
+                    </Grid.Col>
+                </Grid>
+            </Container>
+        </div>
     );
 }

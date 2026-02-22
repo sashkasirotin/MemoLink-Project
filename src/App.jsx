@@ -9,9 +9,10 @@ import CategoriesPage from './pages/CategoriesPage'
 import { Route, Routes, useNavigate } from 'react-router'
 import { redirect } from 'react-router'
 
-
 // import { MantineProvider } from '@mantine/core';
 import AuthProvider from './auth/AuthProvider'
+import '@mantine/core/styles.css';
+import CategoriesPage from './pages/CategoriesPage'
 
 function App() {
 
@@ -35,7 +36,6 @@ function App() {
             } />
         </Routes >
       </AuthProvider>
-
     </>
 
   )
