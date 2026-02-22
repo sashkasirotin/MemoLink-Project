@@ -4,14 +4,25 @@ import Card from "../components/Card";
 import dataJson from '../data/categories.json'
 import fetchImages from '../components/api'
 import "./BoardGamePage.css";
+import { useParams } from "react-router";
 
 
-function BoardGame({ category }) {
-
+function BoardGame() {
+    const { category } = useParams();
     const [cards, setCards] = useState([]);
     const [promptWord, setPromptWord] = useState("");
     const [isGameReady, setIsGameReady] = useState(false);
-    // const [seconds, setSeconds] = useState(0);
+    const [seconds, setSeconds] = useState(0);
+    const [phase, setPhase] = useState("preview");
+    const [step, setStep] = useState(0);
+
+    useEffect(() => {
+        if (!isGameReady) return;
+        if (phase !== "playing") return;
+
+        const id = setInterval(() => setSeconds(s => s + 1), 1000);
+        return () => clearInterval(id);
+    }, [isGameReady, phase])
 
 
     function shuffleAndPick(wordsArray) {
@@ -25,6 +36,10 @@ function BoardGame({ category }) {
 
     useEffect(() => {
         const run = async () => {
+            setIsGameReady(false);
+            setPhase("preview");
+            setPromptWord("");
+            setSeconds(0);
             const loadImage = (word) => fetchImages(word);
 
             const categoryData = dataJson.find(d => d[category]);
@@ -50,11 +65,13 @@ function BoardGame({ category }) {
                         image: card.image
                     }))
                     setCards(result)
+                    setPhase("playing");
                 }, 5000)
 
                 const firstWord = initialCards[Math.floor(Math.random() * initialCards.length)].label;
                 setPromptWord(firstWord);
                 setIsGameReady(true);
+
             }
         }
 
@@ -72,12 +89,14 @@ function BoardGame({ category }) {
             const nextWord = remainingCards[Math.floor(Math.random() * remainingCards.length)].label;
             setPromptWord(nextWord);
         } else {
-            setPromptWord("Well done you finished the board");
+            setPhase("finished");
+            setPromptWord(`Well done you finished the board with ${step} moves!`);
         }
     };
 
     const handleCardClick = (clickedLabel) => {
-        console.log(clickedLabel + "||" + promptWord)
+        const countSteps = step;
+        setStep(countSteps + 1);
         if (clickedLabel === promptWord) {
             const updatedCards = cards.map(card =>
                 card.label === clickedLabel ? { ...card, show: true } : card
@@ -96,10 +115,17 @@ function BoardGame({ category }) {
         <div className="board-game-page">
             <div className="bg-noise" />
             <div className="game-header">
-                <h2>find: <span className="highlight">{promptWord}</span></h2>
-            </div>
-            {/* <div className="timer">Time: {seconds}s</div> */}
+                <div className="timer">Time: {seconds}s</div>
 
+                {phase === "playing" && (
+                    <div className="click">Moves: {step}
+                        <h2>find: <span className="highlight">{promptWord}</span></h2>
+                    </div>
+                )}
+                {phase === "finished" && (
+                    <div className="win-banner">🎉 Well done! You finished the board with {step} moves!.</div>
+                )}
+            </div>
             <div className="board-container" >
                 {cards.map(card => (
                     <Card

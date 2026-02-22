@@ -17,31 +17,25 @@ function App() {
 
   return (
     <>
-      <BoardGame category={"fruits"} />
-      {/* <AuthProvider >
-        <HomePage />
- 
-      </AuthProvider> */}
-    </AuthProvider >
-    {/*<LoginPage />
-      Updated upstream
-      <BoardGame category={"fruits"} />*/}
+      {/* <BoardGame category={"fruits"} /> */}
+      <AuthProvider >
+        {/* <HomePage /> */}
 
 
-      < Routes >
-        <Route path="/HomePage" element={<HomePage />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/play/:category" element={<BoardGame />} />
-        <Route path="/categories"
-          element={
-            <CategoriesPage />
-            //<ProtectedRoute >
-            // <ActorsPage />
-            //</ProtectedRoute>
-          } />
-      </Routes >
+        < Routes >
+          <Route path="/" element={<HomePage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/play/:category" element={<BoardGame />} />
+          <Route path="/categories"
+            element={
+              <CategoriesPage />
+              //<ProtectedRoute >
+              // <ActorsPage />
+              //</ProtectedRoute>
+            } />
+        </Routes >
+      </AuthProvider>
 
->>>>>>> origin/main
     </>
 
   )
