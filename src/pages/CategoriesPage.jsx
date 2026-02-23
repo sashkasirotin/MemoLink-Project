@@ -57,7 +57,8 @@ export default function CategoriesPage() {
                 difficulty={selectedDifficulty}
                 onSelect={handleDifficultySelect}
             />
-            <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '20px', maxWidth: 200, margin: '0 auto' }}>
+            <div style={{ padding: "28px 16px", overflow: 'hidden', display: 'flex', justifyContent: 'center', marginBottom: '20px', maxWidth: 200, margin: '0 auto' }}>
+
                 <Button onClick={handlePlay}>Play</Button>
             </div>
         </div>
